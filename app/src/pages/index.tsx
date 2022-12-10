@@ -1,8 +1,47 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../../styles/Home.module.css'
+import Head from "next/head";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
+import styles from "../../styles/index.module.scss";
+import React, { useState } from "react";
+import Router from "next/router";
 
-export default function Home() {
+export default () => {
+  const [nameValue, setNameValue] = useState<string>("");
+  const [sexValue, setSexValue] = useState<string>("");
+  const [alertPop, alertPopSet] = useState<JSX.Element>(null!);
+
+  const sex = ["男", "女"];
+
+  const Buttons = () => {
+    return (
+      <div>
+        {sex.map((sex, id) => (
+          <Form.Check
+            inline
+            key={id}
+            label={sex}
+            name="group1"
+            type="radio"
+            value={sex}
+            onChange={(e) => setSexValue(e.target.value)}
+            checked={sexValue === sex}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  const handleClick = () => {
+    if (nameValue === "" || sexValue === "") {
+      alertPopSet(<Alert variant="danger">入力項目が不足しています。すべて記入してください。</Alert>);
+
+      return;
+    }
+    const save_str = { name: nameValue, sex: sexValue };
+    sessionStorage.setItem("beauty-measurement", JSON.stringify(save_str));
+    Router.push("./guideline");
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -12,60 +51,29 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <h1 className={styles.title}>表情補完自然度測定</h1>
+        {alertPop}
+        <div  className={styles.contents}>
+          <Form className={styles.form}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>名前</Form.Label>
+              <Form.Control
+                value={nameValue}
+                onChange={(e) => setNameValue(e.target.value)}
+                className={styles.inputform}
+              />
+            </Form.Group>
+            <div className={styles.radio}>
+              <Buttons />
+            </div>
+          </Form>
+          <div className={styles.button_wrapper}>
+          <Button variant="primary" onClick={handleClick} className={styles.button}>
+            開始する
+          </Button>
+          </div>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
-  )
-}
+  );
+};
