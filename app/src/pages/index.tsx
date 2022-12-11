@@ -4,6 +4,7 @@ import Alert from "react-bootstrap/Alert";
 import styles from "../../styles/index.module.scss";
 import React, { useState } from "react";
 import Router from "next/router";
+import { Profile } from "../components/interfaces";
 
 export default () => {
   const [nameValue, setNameValue] = useState<string>("");
@@ -34,10 +35,9 @@ export default () => {
   const handleClick = () => {
     if (nameValue === "" || sexValue === "") {
       alertPopSet(<Alert variant="danger">入力項目が不足しています。すべて記入してください。</Alert>);
-
       return;
     }
-    const save_str = { name: nameValue, sex: sexValue };
+    const save_str : Profile = { name: nameValue, sex: sexValue };
     sessionStorage.setItem("beauty-measurement", JSON.stringify(save_str));
     Router.push("./guideline");
   };
