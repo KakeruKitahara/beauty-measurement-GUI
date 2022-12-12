@@ -17,7 +17,7 @@ import {
 
 
 export default () => {
-  let results: Result[] = [];
+  const [results, setResults] = useState<Result[]>([]);
   const morphing: Morphing[] = Json;
 
   useEffect(() => {
@@ -93,10 +93,10 @@ export default () => {
   };
 
 
-  const [pageElement, setPageElement] = useState<JSX.Element>(Facepages);
 
   const handleClick = () => {
-    if (selValue === 0) {
+    const rotation: number = Math.floor(Json.length / (rest_num + 1));
+    if (selValue === 0 && stepValue - 1 !== rotation) {
       alertPopSet(
         <Alert variant="danger">
           入力項目が不足しています。選択課題は入力してください。
@@ -112,19 +112,14 @@ export default () => {
       );
       results.sort((a, b) => sort_func(a, b));
       const data: Data = { profile: profile, results: results };
-      console.log(data);
       sessionStorage.setItem("beauty-measurement", JSON.stringify(data));
       Router.push("./result");
     }
 
-    const rotation: number = Math.floor(Json.length / (rest_num + 1));
-    if (stepValue !== rotation + 1)
-      results.push({ type: Json[stepValue - 1].type, name: Json[stepValue - 1].name, ans: selValue, comment: commentValue });
 
-    if (stepValue === rotation) {
-      setPageElement(Restpages);
-    } else {
-      setPageElement(Facepages);
+    if (stepValue !== rotation + 1) {
+      const tmpin: Result = { type: Json[stepValue - 1].type, name: Json[stepValue - 1].name, ans: selValue, comment: commentValue };
+      setResults([...results, tmpin]);
     }
 
     setStepValue((prevValue) => prevValue + 1);
@@ -167,7 +162,14 @@ export default () => {
           {stepValue}/{rest_num + Json.length}
         </div>
         {alertPop}
-        {pageElement}
+        {(() => {
+          const rotation: number = Math.floor(Json.length / (rest_num + 1));
+          if (stepValue - 1 === rotation) {
+            return <Restpages />;
+          } else {
+            return <Facepages />;
+          }
+        })()}
         <Button variant="primary" onClick={() => handleClick()}>
           Jキー : 次へ進む
         </Button>
