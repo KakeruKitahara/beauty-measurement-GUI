@@ -4,11 +4,12 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Router from "next/router";
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useState } from "react";
 import { Result, sort_func, Data, Profile } from "../components/interfaces";
 
 export default () => {
   let results: Result[];
+  let Morphing
 
   const [selValue, setSelValue] = useState<number>(0);
   const [focusCommentValue, setFocusCommentValue] = useState<number>(0);
@@ -45,6 +46,7 @@ export default () => {
   const handleClick = () => {
     setStepValue((prevValue) => prevValue + 1);
     console.log(stepValue);
+    getStaticProps();
 
     if (selValue === 0) {
       alertPopSet(

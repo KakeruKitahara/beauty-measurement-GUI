@@ -1,0 +1,37 @@
+[
+  {
+    "type": "liner",
+    "path": "../public/morphing/liner/l1.mp4",
+    "no": 0
+  },
+  {
+    "type": "liner",
+    "path": "../public/morphing/liner/l2.mp4",
+    "no": 1
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../public/morphing/semanticstylegan/ss1.mp4",
+    "no": 0
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../public/morphing/semanticstylegan/ss2.mp4",
+    "no": 1
+  },
+  {
+    "type": "stylegan",
+    "path": "../public/morphing/stylegan/s1.mp4",
+    "no": 0
+  },
+  {
+    "type": "stylegan",
+    "path": "../public/morphing/stylegan/s2.mp4",
+    "no": 1
+  },
+  {
+    "type": "stylegan",
+    "path": "../public/morphing/stylegan/s3.mp4",
+    "no": 2
+  }
+]

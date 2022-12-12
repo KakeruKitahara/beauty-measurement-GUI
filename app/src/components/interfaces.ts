@@ -1,13 +1,19 @@
+export type Profile = {
+  name: string;
+  sex: string;
+};
+
+export type Morphing = {
+  type: string;
+  path: string;
+  no: number;
+};
+
 export type Result = {
   type: string;
   no: number;
   ans: number;
   comment: string;
-};
-
-export type Profile = {
-  name: string;
-  sex: string;
 };
 
 export type Data = {
