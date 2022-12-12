@@ -17,7 +17,7 @@ json_list=[]
 for k in path_lists.keys() :
   cnt = 0
   for v in path_lists[k] :
-    v = v.replace('app','..',1) 
+    v = v.replace('app','..',1)
     morphing = {'type' : k, 'path' : v, 'no' : cnt}
     json_list.append(morphing)
     cnt += 1

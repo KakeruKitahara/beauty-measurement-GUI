@@ -1,15 +1,16 @@
 import Button from "react-bootstrap/Button";
 import styles from "../../styles/guideline.module.scss";
 import Router from "next/router";
+import { rest_num , rest_time } from "../components/morphing";
+import Json from "../path_txt.json";
+
 
 export default () => {
-  const face_num = 180;
-  const rest_num = 60;
-  const rest_time = 10;
-
+  const face_num = Json.length;
   const handleClick = () => {
     Router.push("./measure");
   };
+
   return (
     <div className={styles.wrap}>
       <h2>本研究に対する規約</h2>
