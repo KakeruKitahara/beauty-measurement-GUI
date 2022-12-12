@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import styles from "../../styles/index.module.scss";
+import Styles from "../../styles/index.module.scss";
 import React, { useState } from "react";
 import Router from "next/router";
 import { Profile } from "../components/interfaces";
@@ -42,26 +42,26 @@ export default () => {
     Router.push("./guideline");
   };
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>表情補完自然度測定</h1>
+    <div className={Styles.container}>
+      <main className={Styles.main}>
+        <h1 className={Styles.title}>表情補完自然度測定</h1>
         {alertPop}
-        <div  className={styles.contents}>
-          <Form className={styles.form}>
+        <div  className={Styles.contents}>
+          <Form className={Styles.form}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>名前</Form.Label>
               <Form.Control
                 value={nameValue}
                 onChange={(e) => setNameValue(e.target.value)}
-                className={styles.inputform}
+                className={Styles.inputform}
               />
             </Form.Group>
-            <div className={styles.radio}>
+            <div className={Styles.radio}>
               <Buttons />
             </div>
           </Form>
-          <div className={styles.button_wrapper}>
-          <Button variant="primary" onClick={handleClick} className={styles.button}>
+          <div className={Styles.button_wrapper}>
+          <Button variant="primary" onClick={handleClick} className={Styles.button}>
             開始する
           </Button>
           </div>

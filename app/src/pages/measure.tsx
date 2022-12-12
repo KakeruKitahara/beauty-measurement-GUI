@@ -1,5 +1,5 @@
 import Button from "react-bootstrap/Button";
-import styles from "../../styles/guideline.module.scss";
+import Styles from "../../styles/measure.module.scss";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -15,16 +15,16 @@ import {
   Morphing,
 } from "../components/interfaces";
 
+
 export default () => {
-  let results: Result[];
-  const Morphing: Morphing[] = Json;
+  let results: Result[] = [];
+  const morphing: Morphing[] = Json;
 
   useEffect(() => {
-    for (let i = Morphing.length - 1; 0 < i; i--) {
+    for (let i = morphing.length - 1; 0 < i; i--) {
       const r = Math.floor(Math.random() * (i + 1));
-      [Morphing[i], Morphing[r]] = [Morphing[r], Morphing[i]];
+      [morphing[i], morphing[r]] = [morphing[r], morphing[i]];
     }
-    console.log("a");
   }, []);
 
   const [selValue, setSelValue] = useState<number>(0);
@@ -32,9 +32,8 @@ export default () => {
   const [commentValue, setCommentValue] = useState<string>("");
   const [stepValue, setStepValue] = useState<number>(1);
   const [alertPop, alertPopSet] = useState<JSX.Element>(null!);
-  const [pageElement, setPageElement] = useState<JSX.Element>(null!);
 
-  const Buttons = () => {
+  const RadioButtuns = () => {
     const ans_list = [
       "Aキー : 不自然",
       "Sキー : やや不自然",
@@ -64,10 +63,7 @@ export default () => {
     // 顔測定コンポーネント
     return (
       <>
-        <Buttons />
-        <Button variant="primary" onClick={handleClick}>
-          Jキー : 次へ進む
-        </Button>
+        <RadioButtuns />
         <FloatingLabel
           controlId="floatingTextarea2"
           label="Leave a comment here!"
@@ -84,34 +80,22 @@ export default () => {
     );
   };
 
+
   const Restpages = () => {
+
+
     // 休憩時間コンポーネント
     return (
       <>
-        <Buttons />
-        <Button variant="primary" onClick={handleClick}>
-          Jキー : 次へ進む
-        </Button>
-        <FloatingLabel
-          controlId="floatingTextarea2"
-          label="Leave a comment here!"
-          onFocus={() => setFocusCommentValue(1)}
-          onBlur={() => setFocusCommentValue(0)}
-        >
-          <Form.Control
-            as="textarea"
-            style={{ height: "100px" }}
-            onChange={(e: any) => setCommentValue(e.target.value)}
-          />
-        </FloatingLabel>
+        <div>a</div>
       </>
     );
   };
 
-  const handleClick = () => {
-    setStepValue((prevValue) => prevValue + 1);
-    console.log(stepValue);
 
+  const [pageElement, setPageElement] = useState<JSX.Element>(Facepages);
+
+  const handleClick = () => {
     if (selValue === 0) {
       alertPopSet(
         <Alert variant="danger">
@@ -120,29 +104,35 @@ export default () => {
       );
       return;
     }
-
-    results.push({ type: "", no: 1, ans: selValue, comment: commentValue });
     alertPopSet(null!);
 
-    if (stepValue > rest_num + Json.length) {
+    if (stepValue === rest_num + Json.length) {
       const profile: Profile = JSON.parse(
         sessionStorage.getItem("beauty-measurement")!
       );
       results.sort((a, b) => sort_func(a, b));
       const data: Data = { profile: profile, results: results };
+      console.log(data);
       sessionStorage.setItem("beauty-measurement", JSON.stringify(data));
       Router.push("./result");
     }
 
-    if (stepValue === Json.length / (rest_num + 1)) {
-      setPageElement(Facepages);
+    const rotation: number = Math.floor(Json.length / (rest_num + 1));
+    if (stepValue !== rotation + 1)
+      results.push({ type: Json[stepValue - 1].type, name: Json[stepValue - 1].name, ans: selValue, comment: commentValue });
+
+    if (stepValue === rotation) {
+      setPageElement(Restpages);
     } else {
       setPageElement(Facepages);
     }
 
+    setStepValue((prevValue) => prevValue + 1);
+
     setSelValue(0);
     setCommentValue("");
   };
+
 
   if (typeof document !== "undefined") {
     document.onkeydown = function (e) {
@@ -174,10 +164,13 @@ export default () => {
     <>
       <div>
         <div>
-          {stepValue}/{}
+          {stepValue}/{rest_num + Json.length}
         </div>
         {alertPop}
         {pageElement}
+        <Button variant="primary" onClick={() => handleClick()}>
+          Jキー : 次へ進む
+        </Button>
       </div>
     </>
   );

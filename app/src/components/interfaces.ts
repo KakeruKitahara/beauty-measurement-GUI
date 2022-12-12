@@ -6,12 +6,12 @@ export type Profile = {
 export type Morphing = {
   type: string;
   path: string;
-  no: number;
+  name: string;
 };
 
 export type Result = {
   type: string;
-  no: number;
+  name: string;
   ans: number;
   comment: string;
 };
@@ -24,7 +24,7 @@ export type Data = {
 export const sort_func = (a: Result, b: Result) => {
   if (a.type > b.type) return 1;
   if (a.type < b.type) return -1;
-  if (a.no > b.no) return -1;
-  if (a.no < b.no) return 1;
+  if (a.name > b.name) return -1;
+  if (a.name < b.name) return 1;
   return 0;
 };

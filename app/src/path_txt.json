@@ -2,36 +2,36 @@
   {
     "type": "liner",
     "path": "../public/morphing/liner/l1.mp4",
-    "no": 0
+    "name": "l1"
   },
   {
     "type": "liner",
     "path": "../public/morphing/liner/l2.mp4",
-    "no": 1
+    "name": "l2"
   },
   {
     "type": "semanticstylegan",
     "path": "../public/morphing/semanticstylegan/ss1.mp4",
-    "no": 0
+    "name": "ss1"
   },
   {
     "type": "semanticstylegan",
     "path": "../public/morphing/semanticstylegan/ss2.mp4",
-    "no": 1
+    "name": "ss2"
   },
   {
     "type": "stylegan",
     "path": "../public/morphing/stylegan/s1.mp4",
-    "no": 0
+    "name": "s1"
   },
   {
     "type": "stylegan",
     "path": "../public/morphing/stylegan/s2.mp4",
-    "no": 1
+    "name": "s2"
   },
   {
     "type": "stylegan",
     "path": "../public/morphing/stylegan/s3.mp4",
-    "no": 2
+    "name": "s3"
   }
 ]

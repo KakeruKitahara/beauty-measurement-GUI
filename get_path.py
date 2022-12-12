@@ -15,12 +15,10 @@ json_list=[]
 
 
 for k in path_lists.keys() :
-  cnt = 0
   for v in path_lists[k] :
     v = v.replace('app','..',1)
-    morphing = {'type' : k, 'path' : v, 'no' : cnt}
+    morphing = {'type' : k, 'path' : v, 'name' : os.path.splitext(os.path.basename(v))[0]}
     json_list.append(morphing)
-    cnt += 1
 
 
 with open('./app/src/path_txt.json', 'w') as f:
