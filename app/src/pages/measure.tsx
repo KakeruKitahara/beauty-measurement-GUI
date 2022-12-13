@@ -4,7 +4,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Router from "next/router";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Json from "../path_txt.json";
 import { rest_num, rest_time, sortFunc, randSort, RestPositioning } from "../components/function";
 import {
@@ -23,9 +23,10 @@ export default () => {
     randSort(morphing);
   }, []);
 
-  let focus_comment_flag: boolean = false;
-  let prob_value: { [key: string]: any } = { select: 0, comment: "" };
+  const [focusCommentFlag, setFocusCommentFlag] = useState<boolean>(false);
   const [stepValue, setStepValue] = useState<number>(1);
+  const [selValue, setSelValue] = useState<number>(0);
+  const [commentValue, setCommentValue] = useState<string>("");
   const [alertPop, alertPopSet] = useState<JSX.Element>(null!);
 
 
@@ -47,37 +48,16 @@ export default () => {
             name="group1"
             type="radio"
             value={id + 1}
-            onChange={(e: any) => prob_value.select = parseInt(e.target.value)}
+            onChange={(e: any) => setSelValue(parseInt(e.target.value))}
+            checked={selValue === id + 1}
           />
         ))}
       </div>
     );
   };
 
-  const Facepages = () => {
-    // 顔測定コンポーネント
-    return (
-      <>
-        <RadioButtuns />
-        <FloatingLabel
-          controlId="floatingTextarea2"
-          label="Leave a comment here!"
-          onFocus={() => focus_comment_flag = true}
-          onBlur={() => focus_comment_flag = false}
-        >
-          <Form.Control
-            as="textarea"
-            style={{ height: "100px" }}
-            onChange={(e: any) => prob_value.comment = e.target.value
-            }
-          />
-        </FloatingLabel>
-      </>
-    );
-  };
-
   let current_time: number;
-  const [defaultTime, setDefaultTime] = useState<number>(rest_time * 60);
+  const [defaultTime, setDefaultTime] = useState<number>(Math.floor(rest_time * 60));
   const Restpages = () => {
     const [time, setTime] = useState(defaultTime);
 
@@ -112,7 +92,7 @@ export default () => {
     const sum_worksteps = Math.max(restCnt, radix_and_plus_element[1]) * (radix_and_plus_element[0] + 1) + Math.max(restCnt - radix_and_plus_element[1] + 1, 0) * radix_and_plus_element[0];
 
     if (!restFlag) {
-      if (prob_value.select === 0) {
+      if (selValue === 0) {
         alertPopSet(
           <Alert variant="danger">
             入力項目が不足しています。選択課題は入力してください。
@@ -138,7 +118,7 @@ export default () => {
       }
 
       const idx = stepValue - 1 - restCnt;
-      const tmpin: Result = { type: Json[idx].type, name: Json[idx].name, ans: prob_value.select, comment: prob_value.comment };
+      const tmpin: Result = { type: Json[idx].type, name: Json[idx].name, ans: selValue, comment: commentValue };
       setResults([...results, tmpin]);
     }
     else {
@@ -151,39 +131,35 @@ export default () => {
         setDefaultTime(current_time);
         return;
       }
-      setDefaultTime(rest_time * 60);
+      setDefaultTime(Math.floor(rest_time * 60));
       alertPopSet(null!);
       setRestFlag(false);
       setRestCnt(pre => pre + 1);
     }
     setStepValue((prevValue) => prevValue + 1);
+    setSelValue(0);
+    setCommentValue("");
   };
 
   if (typeof document !== "undefined") {
     document.onkeydown = function (e) {
-      if (focus_comment_flag === false) {
-        switch (e.key) {
-          case "a":
-            prob_value.select = 1;
-            break;
-          case "s":
-            prob_value.select = 2;
-            break;
-          case "d":
-            prob_value.select = 3;
-            break;
-          case "f":
-            prob_value.select = 4;
-            break;
-          case "g":
-            prob_value.select = 5;
-            break;
-          case "j":
-            handleClick();
+      const keys = ["a", "s", "d", "f", "g"];
+      keys.forEach((key, ind) => {
+        if (e.key === key && !focusCommentFlag) {
+          setSelValue(ind + 1);
         }
+      });
+      if (e.key === "j" && !focusCommentFlag) {
+        handleClick();
       }
     };
   }
+
+  const ImgMorph = useMemo(() => {
+    const idx = stepValue - 1 - restCnt;
+    return (
+      <video src={morphing[idx].path} muted autoPlay loop></video>);
+  }, [stepValue]);
 
   return (
     <>
@@ -192,14 +168,29 @@ export default () => {
           {stepValue}/{rest_num + Json.length}
         </div>
         {(() => {
-          const idx = stepValue - 1 - restCnt;
           if (!restFlag)
-            return <video src={morphing[idx].path} muted autoPlay loop></video>;
+            return ImgMorph;
         })()}
         {alertPop}
         {(() => {
           if (!restFlag)
-            return <Facepages />;
+          // 顔表情コンポーネント
+            return (<>
+              <RadioButtuns />
+              <FloatingLabel
+                controlId="floatingTextarea2"
+                label="Leave a comment here!"
+                onFocus={() => setFocusCommentFlag(true)}
+                onBlur={() => setFocusCommentFlag(false)}
+              >
+                <Form.Control
+                  as="textarea"
+                  style={{ height: "100px" }}
+                  value={commentValue}
+                  onChange={(e: any) => setCommentValue(e.target.value)}
+                />
+              </FloatingLabel>
+            </>);
           else
             return <Restpages />;
         })()}
