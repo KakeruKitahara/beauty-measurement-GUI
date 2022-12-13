@@ -14,6 +14,7 @@ import {
   Morphing,
 } from "../components/interfaces";
 
+
 export default () => {
   const [results, setResults] = useState<Result[]>([]);
   const morphing: Morphing[] = Json;
@@ -22,11 +23,11 @@ export default () => {
     randSort(morphing);
   }, []);
 
-  const [selValue, setSelValue] = useState<number>(0);
-  const [focusCommentValue, setFocusCommentValue] = useState<number>(0);
-  const [commentValue, setCommentValue] = useState<string>("");
+  let focus_comment_flag: boolean = false;
+  let prob_value: { [key: string]: any } = { select: 0, comment: "" };
   const [stepValue, setStepValue] = useState<number>(1);
   const [alertPop, alertPopSet] = useState<JSX.Element>(null!);
+
 
   const RadioButtuns = () => {
     const ans_list = [
@@ -46,8 +47,7 @@ export default () => {
             name="group1"
             type="radio"
             value={id + 1}
-            onChange={(e: any) => setSelValue(parseInt(e.target.value))}
-            checked={selValue === id + 1}
+            onChange={(e: any) => prob_value.select = parseInt(e.target.value)}
           />
         ))}
       </div>
@@ -62,13 +62,14 @@ export default () => {
         <FloatingLabel
           controlId="floatingTextarea2"
           label="Leave a comment here!"
-          onFocus={() => setFocusCommentValue(1)}
-          onBlur={() => setFocusCommentValue(0)}
+          onFocus={() => focus_comment_flag = true}
+          onBlur={() => focus_comment_flag = false}
         >
           <Form.Control
             as="textarea"
             style={{ height: "100px" }}
-            onChange={(e: any) => setCommentValue(e.target.value)}
+            onChange={(e: any) => prob_value.comment = e.target.value
+            }
           />
         </FloatingLabel>
       </>
@@ -110,12 +111,8 @@ export default () => {
   const handleClick = () => {
     const sum_worksteps = Math.max(restCnt, radix_and_plus_element[1]) * (radix_and_plus_element[0] + 1) + Math.max(restCnt - radix_and_plus_element[1] + 1, 0) * radix_and_plus_element[0];
 
-    if (stepValue === restCnt + sum_worksteps) {
-      setRestFlag(true);
-    }
-
     if (!restFlag) {
-      if (selValue === 0) {
+      if (prob_value.select === 0) {
         alertPopSet(
           <Alert variant="danger">
             入力項目が不足しています。選択課題は入力してください。
@@ -124,6 +121,11 @@ export default () => {
         return;
       }
       alertPopSet(null!);
+
+
+      if (stepValue === restCnt + sum_worksteps) {
+        setRestFlag(true);
+      }
 
       if (stepValue === rest_num + Json.length) {
         const profile: Profile = JSON.parse(
@@ -136,7 +138,7 @@ export default () => {
       }
 
       const idx = stepValue - 1 - restCnt;
-      const tmpin: Result = { type: Json[idx].type, name: Json[idx].name, ans: selValue, comment: commentValue };
+      const tmpin: Result = { type: Json[idx].type, name: Json[idx].name, ans: prob_value.select, comment: prob_value.comment };
       setResults([...results, tmpin]);
     }
     else {
@@ -154,37 +156,27 @@ export default () => {
       setRestFlag(false);
       setRestCnt(pre => pre + 1);
     }
-
     setStepValue((prevValue) => prevValue + 1);
-    setSelValue(0);
-    setCommentValue("");
   };
-
-  const ImageDisplay = ()=>{
-    const idx = stepValue - 1 - restCnt;
-    console.log(morphing[idx].path);
-
-  }
-
 
   if (typeof document !== "undefined") {
     document.onkeydown = function (e) {
-      if (focusCommentValue === 0) {
+      if (focus_comment_flag === false) {
         switch (e.key) {
           case "a":
-            setSelValue(1);
+            prob_value.select = 1;
             break;
           case "s":
-            setSelValue(2);
+            prob_value.select = 2;
             break;
           case "d":
-            setSelValue(3);
+            prob_value.select = 3;
             break;
           case "f":
-            setSelValue(4);
+            prob_value.select = 4;
             break;
           case "g":
-            setSelValue(5);
+            prob_value.select = 5;
             break;
           case "j":
             handleClick();
@@ -200,8 +192,9 @@ export default () => {
           {stepValue}/{rest_num + Json.length}
         </div>
         {(() => {
+          const idx = stepValue - 1 - restCnt;
           if (!restFlag)
-            return <ImageDisplay />;
+            return <video src={morphing[idx].path} muted autoPlay loop></video>;
         })()}
         {alertPop}
         {(() => {
