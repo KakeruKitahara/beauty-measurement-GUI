@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Styles from "../../styles/guideline.module.scss";
 import Router from "next/router";
-import { rest_num , rest_time } from "../components/morphing";
+import { rest_num , rest_time } from "../components/function";
 import Json from "../path_txt.json";
 
 
