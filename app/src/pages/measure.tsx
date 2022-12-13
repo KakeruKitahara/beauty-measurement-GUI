@@ -1,6 +1,5 @@
 import Button from "react-bootstrap/Button";
 import Styles from "../../styles/measure.module.scss";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Router from "next/router";
@@ -113,8 +112,9 @@ export default () => {
         );
         results.sort((a, b) => sortFunc(a, b));
         const data: Data = { profile: profile, results: results };
-        sessionStorage.setItem("beauty-measurement", JSON.stringify(data));
+        sessionStorage.setItem("beauty-measurement", JSON.stringify(data, null, "\t"));
         Router.push("./result");
+        return;
       }
 
       const idx = stepValue - 1 - restCnt;
@@ -174,22 +174,17 @@ export default () => {
         {alertPop}
         {(() => {
           if (!restFlag)
-          // 顔表情コンポーネント
+            // 顔表情コンポーネント
             return (<>
               <RadioButtuns />
-              <FloatingLabel
-                controlId="floatingTextarea2"
-                label="Leave a comment here!"
+              <Form.Control
+                as="textarea"
+                style={{ height: "100px" }}
+                value={commentValue}
                 onFocus={() => setFocusCommentFlag(true)}
                 onBlur={() => setFocusCommentFlag(false)}
-              >
-                <Form.Control
-                  as="textarea"
-                  style={{ height: "100px" }}
-                  value={commentValue}
-                  onChange={(e: any) => setCommentValue(e.target.value)}
-                />
-              </FloatingLabel>
+                onChange={(e: any) => setCommentValue(e.target.value)}
+              />
             </>);
           else
             return <Restpages />;

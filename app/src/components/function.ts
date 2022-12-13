@@ -1,13 +1,13 @@
 import { Result, Morphing } from "./interfaces";
 
-export const rest_num: number = 2; // 休憩総数
+export const rest_num: number = 0; // 休憩総数
 export const rest_time: number = 10; // 休憩時間（分）
 
 export const sortFunc = (a: Result, b: Result) => {
   if (a.type > b.type) return 1;
   if (a.type < b.type) return -1;
-  if (a.name > b.name) return -1;
-  if (a.name < b.name) return 1;
+  if (a.name > b.name) return 1;
+  if (a.name < b.name) return -1;
   return 0;
 };
 
