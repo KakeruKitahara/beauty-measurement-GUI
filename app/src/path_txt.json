@@ -1,0 +1,32 @@
+[
+  {
+    "type": "liner",
+    "path": "morphing/liner/l1.mp4",
+    "name": "l1"
+  },
+  {
+    "type": "liner",
+    "path": "morphing/liner/l2.mp4",
+    "name": "l2"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "morphing/semanticstylegan/ss1.mp4",
+    "name": "ss1"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "morphing/semanticstylegan/ss2.mp4",
+    "name": "ss2"
+  },
+  {
+    "type": "stylegan",
+    "path": "morphing/stylegan/s1.mp4",
+    "name": "s1"
+  },
+  {
+    "type": "stylegan",
+    "path": "morphing/stylegan/s2.mp4",
+    "name": "s2"
+  }
+]

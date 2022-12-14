@@ -1,0 +1,15 @@
+version: "3.2"
+
+services:
+  fronted:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: io_fronted
+    tty: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /root/work
+    ports:
+      - "3000:3000"
