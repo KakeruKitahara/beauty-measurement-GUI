@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>表情補完自然度測定</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="noindex" />
       </Head>
       <Component {...pageProps} />
     </>

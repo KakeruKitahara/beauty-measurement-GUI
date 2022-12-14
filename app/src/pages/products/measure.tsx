@@ -1,17 +1,17 @@
 import Button from "react-bootstrap/Button";
-import Styles from "../../styles/measure.module.scss";
+import Styles from "../../../styles/measure.module.scss";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Router from "next/router";
 import React, { useState, useEffect, useMemo } from "react";
-import Json from "../path_txt.json";
-import { rest_num, rest_time, sortFunc, randSort, RestPositioning } from "../components/function";
+import Json from "../../path_txt.json";
+import { rest_num, rest_time, sortFunc, randSort, RestPositioning } from "../../components/function";
 import {
   Result,
   Data,
   Profile,
   Morphing,
-} from "../components/interfaces";
+} from "../../components/interfaces";
 
 
 export default () => {
@@ -77,7 +77,7 @@ export default () => {
     return (
       <div className={Styles.rest_wrap}>
         <div className={Styles.rest_time}>残り休憩時間 : <span className={Styles.bold}>{current_time = Timer()}</span>秒</div>
-        <p>この間にゆっくり休んでください。長時間の休憩も可能ですが，このページのリロードはしないように願います。</p>
+        <p>この間にゆっくり休んでください。長時間の休憩も可能ですが、このページのリロードはしないように願います。</p>
       </div>
     );
   };

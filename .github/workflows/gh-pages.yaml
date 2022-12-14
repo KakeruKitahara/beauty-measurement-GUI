@@ -1,9 +1,8 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types : [opened, synchronize]
 
 jobs:
   build:
@@ -36,4 +35,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: out
+          publish_dir: ./app/out
