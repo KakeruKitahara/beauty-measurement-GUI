@@ -88,7 +88,7 @@ export default () => {
 
 
   const handleClick = () => {// ボタンクリック操作
-    const sum_worksteps = Math.max(restCnt, radix_and_plus_element[1]) * (radix_and_plus_element[0] + 1) + Math.max(restCnt - radix_and_plus_element[1] + 1, 0) * radix_and_plus_element[0];
+    const sum_worksteps = Math.min(restCnt + 1, radix_and_plus_element[1]) + (restCnt + 1) * radix_and_plus_element[0];
 
     if (!restFlag) {
       if (selValue === 0) {
@@ -106,12 +106,13 @@ export default () => {
       setResults([...results, tmpin]);
 
       if (stepValue === rest_num + Json.length) {
+        const out_results = [...results, tmpin];
         const profile: Profile = JSON.parse(
-          sessionStorage.getItem("beauty-measurement")!
+          sessionStorage.getItem("b-user")!
         );
-        results.sort((a, b) => sortFunc(a, b));
-        const data: Data = { profile: profile, results: results };
-        sessionStorage.setItem("beauty-measurement", JSON.stringify(data, null, "\t"));
+        out_results.sort((a, b) => sortFunc(a, b));
+        const data: Data = { profile: profile, results: out_results };
+        sessionStorage.setItem("b-result", JSON.stringify(data, null, "\t"));
         Router.push("./result");
         return;
       }
@@ -140,12 +141,11 @@ export default () => {
     setCommentValue("");
   };
 
-
   if (typeof document !== "undefined") { // キーボード操作 and 例外操作
     document.onkeydown = function (e) {
       const keys = ["a", "s", "d", "f", "g"];
       keys.forEach((key, ind) => {
-        if (e.key === key && !focusCommentFlag) {
+        if (e.key === key && !focusCommentFlag && !restFlag) {
           setSelValue(ind + 1);
         }
       });

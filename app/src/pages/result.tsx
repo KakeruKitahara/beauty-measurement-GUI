@@ -3,9 +3,10 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import dynamic from "next/dynamic";
 
-export default () => {
-  const str_json: string = sessionStorage.getItem("beauty-measurement")!;
+const Page  = () => {
+  const str_json: string = sessionStorage.getItem("b-result")!;
   const [strValue, setStrValue] = useState<string>(str_json);
   const [alertPop, alertPopSet] = useState<JSX.Element>(null!);
 
@@ -28,7 +29,7 @@ export default () => {
 
   return (
     <div className={Styles.wrap}>
-      <p className={Styles.p}>実験終了です。長時間の実験お疲れ様でした。下の実験結果をコピーを押してをお送りください。</p>
+      <p className={Styles.p}>実験終了です。長時間の実験お疲れ様でした。下の実験結果をコピーを押してをお送りください。送信したのを確認した後にこのページを閉じてもらって大丈夫です。</p>
       {alertPop}
       <h5>実験結果</h5>
       <Form.Control
@@ -46,3 +47,12 @@ export default () => {
     </div>
   );
 }
+
+const DynamicPage = dynamic(
+  {
+    loader: async () => Page,
+  },
+  { ssr: false }
+);
+
+export default DynamicPage;

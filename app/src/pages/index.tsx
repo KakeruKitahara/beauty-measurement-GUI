@@ -38,7 +38,7 @@ export default () => {
       return;
     }
     const save_str: Profile = { name: nameValue, sex: sexValue };
-    sessionStorage.setItem("beauty-measurement", JSON.stringify(save_str));
+    sessionStorage.setItem("b-user", JSON.stringify(save_str));
     Router.push("./guideline");
   };
   return (

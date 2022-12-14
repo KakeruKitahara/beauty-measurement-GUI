@@ -28,10 +28,5 @@
     "type": "stylegan",
     "path": "morphing/stylegan/s2.mp4",
     "name": "s2"
-  },
-  {
-    "type": "stylegan",
-    "path": "morphing/stylegan/s3.mp4",
-    "name": "s3"
   }
 ]
