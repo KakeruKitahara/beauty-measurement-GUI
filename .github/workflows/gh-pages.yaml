@@ -26,6 +26,8 @@ jobs:
       - name: Build
         run: yarn build
         working-directory: ./app
+        env:
+          URL_PREFIX: beauty-measurement-GUI
 
       - name: Export
         run: yarn export
