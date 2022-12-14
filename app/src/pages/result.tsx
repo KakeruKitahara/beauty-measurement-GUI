@@ -20,25 +20,29 @@ export default () => {
       })
       .catch(err => {
         <Alert variant="danger">
-          コピー失敗しました。何度もできない場合は範囲選択でコピーしてください。
+          コピー失敗しました。何度もできない場合は範囲選択(ctrl + A)で実験結果をコピーしてください。
         </Alert>
       });
   };
 
 
   return (
-    <>
-      <p>実験終了です。長時間の実験お疲れ様でした。下の実験結果をコピーしてをお送りください。</p>
+    <div className={Styles.wrap}>
+      <p className={Styles.p}>実験終了です。長時間の実験お疲れ様でした。下の実験結果をコピーを押してをお送りください。</p>
       {alertPop}
+      <h5>実験結果</h5>
       <Form.Control
         as="textarea"
-        style={{ height: "100px", fontSize: "12px" }}
+        style={{ height: "300px", fontSize: "16px" }}
         disabled
         value={strValue}
         onChange={(e: any) => setStrValue(e.target.value)}
       />
-      <Button variant="primary" onClick={() => copy(strValue)}>
-        COPY
-      </Button>
-    </>);
+      <div className={Styles.button}>
+        <Button variant="primary" onClick={() => copy(strValue)}>
+          COPY
+        </Button>
+      </div>
+    </div>
+  );
 }

@@ -1,0 +1,44 @@
+.wrap {
+  width: 80%;
+  margin: auto;
+  font-size: 18px;
+  .mp4,
+  .radioButton,
+  .form,
+  .count,
+  .button_wrapper {
+    text-align: center;
+  }
+
+  .count {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .mp4,
+  .button,
+  .q1,
+  .q2,
+  .rest_wrap {
+    margin-bottom: 25px;
+  }
+
+  .mp4 video {
+    height: 460px;
+  }
+
+  .rest_wrap {
+    font-size: 20px;
+    .rest_time {
+      margin: 20px;
+      font-size: 30px;
+      .bold{
+        padding-right: 5px;
+      }
+    }
+  }
+
+  .bold{
+    font-weight: bold;
+  }
+}

@@ -29,7 +29,7 @@ export default () => {
   const [alertPop, alertPopSet] = useState<JSX.Element>(null!);
 
 
-  const RadioButtuns = () => {
+  const RadioButtuns = () => { // ラジオボタン
     const ans_list = [
       "Aキー : 不自然",
       "Sキー : やや不自然",
@@ -38,7 +38,7 @@ export default () => {
       "Gキー : 自然",
     ];
     return (
-      <div>
+      <div className={Styles.radioButton}>
         {ans_list.map((word: string, id: number) => (
           <Form.Check
             inline
@@ -60,7 +60,7 @@ export default () => {
   const Restpages = () => {
     const [time, setTime] = useState(defaultTime);
 
-    const Timer = () => {
+    const Timer = () => { // 制限時間
       useEffect(() => {
         const id = setInterval(() => {
           if (0 < current_time)
@@ -75,10 +75,10 @@ export default () => {
 
     // 休憩時間コンポーネント
     return (
-      <>
-        <div>残り休憩時間 : <span>{current_time = Timer()}</span>秒</div>
-        <p>この間にゆっくり休んでください。少なくとも上記の時間は休んでください。</p>
-      </>
+      <div className={Styles.rest_wrap}>
+        <div className={Styles.rest_time}>残り休憩時間 : <span className={Styles.bold}>{current_time = Timer()}</span>秒</div>
+        <p>この間にゆっくり休んでください。長時間の休憩も可能ですが，このページのリロードはしないように願います。</p>
+      </div>
     );
   };
 
@@ -87,7 +87,7 @@ export default () => {
   const [restFlag, setRestFlag] = useState<boolean>(false);
 
 
-  const handleClick = () => {
+  const handleClick = () => {// ボタンクリック操作
     const sum_worksteps = Math.max(restCnt, radix_and_plus_element[1]) * (radix_and_plus_element[0] + 1) + Math.max(restCnt - radix_and_plus_element[1] + 1, 0) * radix_and_plus_element[0];
 
     if (!restFlag) {
@@ -101,10 +101,9 @@ export default () => {
       }
       alertPopSet(null!);
 
-
-      if (stepValue === restCnt + sum_worksteps) {
-        setRestFlag(true);
-      }
+      const idx = stepValue - 1 - restCnt;
+      const tmpin: Result = { type: Json[idx].type, name: Json[idx].name, ans: selValue, comment: commentValue };
+      setResults([...results, tmpin]);
 
       if (stepValue === rest_num + Json.length) {
         const profile: Profile = JSON.parse(
@@ -117,9 +116,9 @@ export default () => {
         return;
       }
 
-      const idx = stepValue - 1 - restCnt;
-      const tmpin: Result = { type: Json[idx].type, name: Json[idx].name, ans: selValue, comment: commentValue };
-      setResults([...results, tmpin]);
+      if (stepValue === restCnt + sum_worksteps) {
+        setRestFlag(true);
+      }
     }
     else {
       if (0 != current_time) {
@@ -141,7 +140,8 @@ export default () => {
     setCommentValue("");
   };
 
-  if (typeof document !== "undefined") {
+
+  if (typeof document !== "undefined") { // キーボード操作 and 例外操作
     document.onkeydown = function (e) {
       const keys = ["a", "s", "d", "f", "g"];
       keys.forEach((key, ind) => {
@@ -155,44 +155,58 @@ export default () => {
     };
   }
 
-  const ImgMorph = useMemo(() => {
+  const ImgMorph = useMemo(() => { // メモ化して不要な再レンダリングを禁止
     const idx = stepValue - 1 - restCnt;
     return (
-      <video src={morphing[idx].path} muted autoPlay loop></video>);
+      <div className={Styles.mp4}>
+        <video src={morphing[idx].path} muted autoPlay loop></video>
+      </div>);
   }, [stepValue]);
 
   return (
-    <>
-      <div>
-        <div>
-          {stepValue}/{rest_num + Json.length}
-        </div>
-        {(() => {
-          if (!restFlag)
-            return ImgMorph;
-        })()}
-        {alertPop}
-        {(() => {
-          if (!restFlag)
-            // 顔表情コンポーネント
-            return (<>
+
+    <div className={Styles.wrap}>
+      <div className={Styles.count}>
+        {stepValue}/{rest_num + Json.length}
+      </div>
+      {(() => {
+        if (!restFlag)
+          return ImgMorph;
+      })()}
+      {alertPop}
+      {(() => {
+        if (!restFlag)
+          // 顔表情コンポーネント
+          return (<>
+            <div className={Styles.q1}>
+              Q1 : 上の表示されている動画は自然な顔表情の動きですか？（必須選択）
               <RadioButtuns />
-              <Form.Control
-                as="textarea"
-                style={{ height: "100px" }}
-                value={commentValue}
-                onFocus={() => setFocusCommentFlag(true)}
-                onBlur={() => setFocusCommentFlag(false)}
-                onChange={(e: any) => setCommentValue(e.target.value)}
-              />
-            </>);
-          else
-            return <Restpages />;
-        })()}
-        <Button variant="primary" onClick={() => handleClick()}>
+            </div>
+            <div className={Styles.q2}>
+              Q2 : 上の表示されている動画で不自然だと思われるところはどこですか？（任意入力）
+              <div className={Styles.form}>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                  <Form.Control
+                    as="textarea"
+                    style={{ height: "100px" }}
+                    value={commentValue}
+                    onFocus={() => setFocusCommentFlag(true)}
+                    onBlur={() => setFocusCommentFlag(false)}
+                    onChange={(e: any) => setCommentValue(e.target.value)}
+                  />
+                </Form.Group>
+              </div>
+            </div>
+          </>);
+        else
+          return <Restpages />;
+      })()}
+      <div className={Styles.button_wrapper}>
+        <Button variant="primary" className={Styles.button} onClick={() => handleClick()}>
           Jキー : 次へ進む
         </Button>
       </div>
-    </>
+    </div>
+
   );
 };

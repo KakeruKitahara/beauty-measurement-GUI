@@ -1,12 +1,13 @@
 import Button from "react-bootstrap/Button";
 import Styles from "../../styles/guideline.module.scss";
 import Router from "next/router";
-import { rest_num , rest_time } from "../components/function";
+import { rest_num , rest_time, RestPositioning} from "../components/function";
 import Json from "../path_txt.json";
 
 
 export default () => {
   const face_num = Json.length;
+  const radix_and_plus_element: number[] = RestPositioning(face_num, rest_num);
   const handleClick = () => {
     Router.push("./measure");
   };
@@ -22,8 +23,8 @@ export default () => {
       <ul>
         <li>
           顔表情動画は1つが5秒ほどと短い動画となりますが、全部で{face_num}
-          個の動画を見ることとなります。{rest_num}
-          回ごとに休憩時間を入れますが、
+          個の動画を見ることとなります。約{radix_and_plus_element[0]}
+          回ごに休憩時間を入れますが、
           <span className={Styles.bold}>
             長時間の実験になるので実験開始の際には長時間の確保をお願い致します。
           </span>
@@ -59,16 +60,16 @@ export default () => {
       <h3>自然性について</h3>
       <p>本研究では自然性について以下のように定めます。</p>
       <div className={Styles.defnition}>
-        自然性とは自分の記憶している顔表情と比べておかしい箇所がないこと。ありのままであること。
+        自分の記憶している顔表情と比べて自然な表情か。
       </div>
       <p>
+        形容詞としての自然の解釈は皆様に委ねます。<br />
         以上のことで質問がありましたら、細かいことでも構いませんので随時自分に連絡ください。以上を理解しましたら、これから下のボタンを押して実験を開始してください。
       </p>
-      <div className={Styles.button_wrapper}>
+      <div className={Styles.button}>
         <Button
           variant="primary"
           onClick={handleClick}
-          className={Styles.button}
         >
           実験を始める
         </Button>

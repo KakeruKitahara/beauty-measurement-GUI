@@ -37,7 +37,7 @@ export default () => {
       alertPopSet(<Alert variant="danger">入力項目が不足しています。すべて記入してください。</Alert>);
       return;
     }
-    const save_str : Profile = { name: nameValue, sex: sexValue };
+    const save_str: Profile = { name: nameValue, sex: sexValue };
     sessionStorage.setItem("beauty-measurement", JSON.stringify(save_str));
     Router.push("./guideline");
   };
@@ -46,7 +46,7 @@ export default () => {
       <main className={Styles.main}>
         <h1 className={Styles.title}>表情補完自然度測定</h1>
         {alertPop}
-        <div  className={Styles.contents}>
+        <div className={Styles.contents}>
           <Form className={Styles.form}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>名前</Form.Label>
@@ -60,10 +60,10 @@ export default () => {
               <Buttons />
             </div>
           </Form>
-          <div className={Styles.button_wrapper}>
-          <Button variant="primary" onClick={handleClick} className={Styles.button}>
-            開始する
-          </Button>
+          <div className={Styles.button}>
+            <Button variant="primary" onClick={handleClick} >
+              開始する
+            </Button>
           </div>
         </div>
       </main>
