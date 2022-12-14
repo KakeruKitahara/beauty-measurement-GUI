@@ -6,7 +6,7 @@ export default () => {
       <Head>
         <title>404 | Pay History</title>
       </Head>
-      404 found. 最初からやり直してください。
+      Not found. 最初からやり直してください。
     </>
   );
 };

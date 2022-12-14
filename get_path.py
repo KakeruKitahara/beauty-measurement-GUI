@@ -16,7 +16,7 @@ json_list=[]
 
 for k in path_lists.keys() :
   for v in path_lists[k] :
-    v = v.replace('app/public/','',1)
+    v = v.replace('app/public/','../',1)
     morphing = {'type' : k, 'path' : v, 'name' : os.path.splitext(os.path.basename(v))[0]}
     json_list.append(morphing)
 

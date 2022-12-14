@@ -1,8 +1,8 @@
 import Button from "react-bootstrap/Button";
-import Styles from "../../styles/guideline.module.scss";
+import Styles from "../../../styles/guideline.module.scss";
 import Router from "next/router";
-import { rest_num , rest_time, RestPositioning} from "../components/function";
-import Json from "../path_txt.json";
+import { rest_num , rest_time, RestPositioning} from "../../components/function";
+import Json from "../../path_txt.json";
 
 
 export default () => {
