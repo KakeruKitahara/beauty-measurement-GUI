@@ -12,7 +12,7 @@ export const sortFunc = (a: Result, b: Result) => {
 };
 
 export const randSort = (morphing: Morphing[]) => {
-  for (let i = morphing.length - 1; 0 < i; i--) {
+  for (let i = morphing.length - 1; 0 <= i; i--) {
     const r = Math.floor(Math.random() * (i + 1));
     [morphing[i], morphing[r]] = [morphing[r], morphing[i]];
   }
