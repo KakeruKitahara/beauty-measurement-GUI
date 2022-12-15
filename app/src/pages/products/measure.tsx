@@ -3,7 +3,7 @@ import Styles from "../../../styles/measure.module.scss";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Router from "next/router";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import Json from "../../path_txt.json";
 import { rest_num, rest_time, sortFunc, randSort, RestPositioning } from "../../components/function";
 import {
@@ -17,13 +17,18 @@ import {
 export default () => {
   const [results, setResults] = useState<Result[]>([]);
   const morphing: Morphing[] = Json;
+  const didEffect = useRef(false);
 
   useEffect(() => {
-    randSort(morphing);
+    if (!didEffect.current) { // strict modeで2開再レンダリング禁止
+      didEffect.current = true;
+      randSort(Json);
+      setStepValue(pre => pre + 1);
+    }
   }, []);
 
   const [focusCommentFlag, setFocusCommentFlag] = useState<boolean>(false);
-  const [stepValue, setStepValue] = useState<number>(1);
+  const [stepValue, setStepValue] = useState<number>(0);
   const [selValue, setSelValue] = useState<number>(0);
   const [commentValue, setCommentValue] = useState<string>("");
   const [alertPop, alertPopSet] = useState<JSX.Element>(null!);
@@ -85,9 +90,9 @@ export default () => {
   const radix_and_plus_element: number[] = RestPositioning(Json.length, rest_num);
   const [restCnt, setRestCnt] = useState<number>(0);
   const [restFlag, setRestFlag] = useState<boolean>(false);
+  const idx = stepValue - 1 - restCnt;
 
-
-  const handleClick = () => {// ボタンクリック操作
+  const handleClick = () => { // ボタンクリック操作
     const sum_worksteps = Math.min(restCnt + 1, radix_and_plus_element[1]) + (restCnt + 1) * radix_and_plus_element[0];
 
     if (!restFlag) {
@@ -101,7 +106,6 @@ export default () => {
       }
       alertPopSet(null!);
 
-      const idx = stepValue - 1 - restCnt;
       const tmpin: Result = { type: Json[idx].type, name: Json[idx].name, ans: selValue, comment: commentValue };
       setResults([...results, tmpin]);
 
@@ -155,12 +159,13 @@ export default () => {
     };
   }
 
-  const ImgMorph = useMemo(() => { // メモ化して不要な再レンダリングを禁止
-    const idx = stepValue - 1 - restCnt;
-    return (
-      <div className={Styles.mp4}>
-        <video src={morphing[idx].path} muted autoPlay loop></video>
-      </div>);
+  const ImgMorph = useMemo(() => {
+    if (idx >= 0) {// メモ化して不要な再レンダリングを禁止
+      return (
+        <div className={Styles.mp4}>
+          <video src={morphing[idx].path} muted autoPlay loop></video>
+        </div>);
+    }
   }, [stepValue]);
 
   return (
