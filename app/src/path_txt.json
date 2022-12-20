@@ -1,32 +1,992 @@
 [
   {
     "type": "liner",
-    "path": "../../morphing/liner/l1.mp4",
-    "name": "l1"
+    "path": "../../morphing/liner/AN-FE.mp4",
+    "name": "AN-FE"
   },
   {
     "type": "liner",
-    "path": "../../morphing/liner/l2.mp4",
-    "name": "l2"
+    "path": "../../morphing/liner/AN-LFAU10.mp4",
+    "name": "AN-LFAU10"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-LFAU12.mp4",
+    "name": "AN-LFAU12"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-LFAU12R.mp4",
+    "name": "AN-LFAU12R"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-LFAU14.mp4",
+    "name": "AN-LFAU14"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-LFAU15.mp4",
+    "name": "AN-LFAU15"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-LFAU24.mp4",
+    "name": "AN-LFAU24"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-LFAU25.mp4",
+    "name": "AN-LFAU25"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-LFAU34.mp4",
+    "name": "AN-LFAU34"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-NE.mp4",
+    "name": "AN-NE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-SA.mp4",
+    "name": "AN-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/AN-UFAU02.mp4",
+    "name": "AN-UFAU02"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-AN.mp4",
+    "name": "FE-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-LFAU10.mp4",
+    "name": "FE-LFAU10"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-LFAU12.mp4",
+    "name": "FE-LFAU12"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-LFAU12R.mp4",
+    "name": "FE-LFAU12R"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-LFAU14.mp4",
+    "name": "FE-LFAU14"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-LFAU15.mp4",
+    "name": "FE-LFAU15"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-LFAU24.mp4",
+    "name": "FE-LFAU24"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-LFAU25.mp4",
+    "name": "FE-LFAU25"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-LFAU34.mp4",
+    "name": "FE-LFAU34"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-NE.mp4",
+    "name": "FE-NE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-SA.mp4",
+    "name": "FE-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/FE-UFAU02.mp4",
+    "name": "FE-UFAU02"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU10-AN.mp4",
+    "name": "LFAU10-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU10-FE.mp4",
+    "name": "LFAU10-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU10-SA.mp4",
+    "name": "LFAU10-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU12-AN.mp4",
+    "name": "LFAU12-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU12-FE.mp4",
+    "name": "LFAU12-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU12-SA.mp4",
+    "name": "LFAU12-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU12R-AN.mp4",
+    "name": "LFAU12R-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU12R-FE.mp4",
+    "name": "LFAU12R-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU12R-SA.mp4",
+    "name": "LFAU12R-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU14-AN.mp4",
+    "name": "LFAU14-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU14-FE.mp4",
+    "name": "LFAU14-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU14-SA.mp4",
+    "name": "LFAU14-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU15-AN.mp4",
+    "name": "LFAU15-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU15-FE.mp4",
+    "name": "LFAU15-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU15-SA.mp4",
+    "name": "LFAU15-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU24-AN.mp4",
+    "name": "LFAU24-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU24-FE.mp4",
+    "name": "LFAU24-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU24-SA.mp4",
+    "name": "LFAU24-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU25-AN.mp4",
+    "name": "LFAU25-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU25-FE.mp4",
+    "name": "LFAU25-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU25-SA.mp4",
+    "name": "LFAU25-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU34-AN.mp4",
+    "name": "LFAU34-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU34-FE.mp4",
+    "name": "LFAU34-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/LFAU34-SA.mp4",
+    "name": "LFAU34-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/NE-AN.mp4",
+    "name": "NE-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/NE-FE.mp4",
+    "name": "NE-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/NE-SA.mp4",
+    "name": "NE-SA"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-AN.mp4",
+    "name": "SA-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-FE.mp4",
+    "name": "SA-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-LFAU10.mp4",
+    "name": "SA-LFAU10"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-LFAU12.mp4",
+    "name": "SA-LFAU12"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-LFAU12R.mp4",
+    "name": "SA-LFAU12R"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-LFAU14.mp4",
+    "name": "SA-LFAU14"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-LFAU15.mp4",
+    "name": "SA-LFAU15"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-LFAU24.mp4",
+    "name": "SA-LFAU24"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-LFAU25.mp4",
+    "name": "SA-LFAU25"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-LFAU34.mp4",
+    "name": "SA-LFAU34"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-NE.mp4",
+    "name": "SA-NE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/SA-UFAU02.mp4",
+    "name": "SA-UFAU02"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/UFAU02-AN.mp4",
+    "name": "UFAU02-AN"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/UFAU02-FE.mp4",
+    "name": "UFAU02-FE"
+  },
+  {
+    "type": "liner",
+    "path": "../../morphing/liner/UFAU02-SA.mp4",
+    "name": "UFAU02-SA"
   },
   {
     "type": "semanticstylegan",
-    "path": "../../morphing/semanticstylegan/ss1.mp4",
-    "name": "ss1"
+    "path": "../../morphing/semanticstylegan/AN-FE.mp4",
+    "name": "AN-FE"
   },
   {
     "type": "semanticstylegan",
-    "path": "../../morphing/semanticstylegan/ss2.mp4",
-    "name": "ss2"
+    "path": "../../morphing/semanticstylegan/AN-LFAU10.mp4",
+    "name": "AN-LFAU10"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-LFAU12.mp4",
+    "name": "AN-LFAU12"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-LFAU12R.mp4",
+    "name": "AN-LFAU12R"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-LFAU14.mp4",
+    "name": "AN-LFAU14"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-LFAU15.mp4",
+    "name": "AN-LFAU15"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-LFAU24.mp4",
+    "name": "AN-LFAU24"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-LFAU25.mp4",
+    "name": "AN-LFAU25"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-LFAU34.mp4",
+    "name": "AN-LFAU34"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-NE.mp4",
+    "name": "AN-NE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-SA.mp4",
+    "name": "AN-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/AN-UFAU02.mp4",
+    "name": "AN-UFAU02"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-AN.mp4",
+    "name": "FE-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-LFAU10.mp4",
+    "name": "FE-LFAU10"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-LFAU12.mp4",
+    "name": "FE-LFAU12"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-LFAU12R.mp4",
+    "name": "FE-LFAU12R"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-LFAU14.mp4",
+    "name": "FE-LFAU14"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-LFAU15.mp4",
+    "name": "FE-LFAU15"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-LFAU24.mp4",
+    "name": "FE-LFAU24"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-LFAU25.mp4",
+    "name": "FE-LFAU25"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-LFAU34.mp4",
+    "name": "FE-LFAU34"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-NE.mp4",
+    "name": "FE-NE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-SA.mp4",
+    "name": "FE-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/FE-UFAU02.mp4",
+    "name": "FE-UFAU02"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU10-AN.mp4",
+    "name": "LFAU10-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU10-FE.mp4",
+    "name": "LFAU10-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU10-SA.mp4",
+    "name": "LFAU10-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU12-AN.mp4",
+    "name": "LFAU12-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU12-FE.mp4",
+    "name": "LFAU12-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU12-SA.mp4",
+    "name": "LFAU12-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU12R-AN.mp4",
+    "name": "LFAU12R-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU12R-FE.mp4",
+    "name": "LFAU12R-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU12R-SA.mp4",
+    "name": "LFAU12R-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU14-AN.mp4",
+    "name": "LFAU14-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU14-FE.mp4",
+    "name": "LFAU14-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU14-SA.mp4",
+    "name": "LFAU14-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU15-AN.mp4",
+    "name": "LFAU15-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU15-FE.mp4",
+    "name": "LFAU15-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU15-SA.mp4",
+    "name": "LFAU15-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU24-AN.mp4",
+    "name": "LFAU24-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU24-FE.mp4",
+    "name": "LFAU24-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU24-SA.mp4",
+    "name": "LFAU24-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU25-AN.mp4",
+    "name": "LFAU25-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU25-FE.mp4",
+    "name": "LFAU25-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU25-SA.mp4",
+    "name": "LFAU25-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU34-AN.mp4",
+    "name": "LFAU34-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU34-FE.mp4",
+    "name": "LFAU34-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/LFAU34-SA.mp4",
+    "name": "LFAU34-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/NE-AN.mp4",
+    "name": "NE-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/NE-FE.mp4",
+    "name": "NE-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/NE-SA.mp4",
+    "name": "NE-SA"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-AN.mp4",
+    "name": "SA-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-FE.mp4",
+    "name": "SA-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-LFAU10.mp4",
+    "name": "SA-LFAU10"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-LFAU12.mp4",
+    "name": "SA-LFAU12"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-LFAU12R.mp4",
+    "name": "SA-LFAU12R"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-LFAU14.mp4",
+    "name": "SA-LFAU14"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-LFAU15.mp4",
+    "name": "SA-LFAU15"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-LFAU24.mp4",
+    "name": "SA-LFAU24"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-LFAU25.mp4",
+    "name": "SA-LFAU25"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-LFAU34.mp4",
+    "name": "SA-LFAU34"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-NE.mp4",
+    "name": "SA-NE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/SA-UFAU02.mp4",
+    "name": "SA-UFAU02"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/UFAU02-AN.mp4",
+    "name": "UFAU02-AN"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/UFAU02-FE.mp4",
+    "name": "UFAU02-FE"
+  },
+  {
+    "type": "semanticstylegan",
+    "path": "../../morphing/semanticstylegan/UFAU02-SA.mp4",
+    "name": "UFAU02-SA"
   },
   {
     "type": "stylegan",
-    "path": "../../morphing/stylegan/s1.mp4",
-    "name": "s1"
+    "path": "../../morphing/stylegan/AN-FE.mp4",
+    "name": "AN-FE"
   },
   {
     "type": "stylegan",
-    "path": "../../morphing/stylegan/s2.mp4",
-    "name": "s2"
+    "path": "../../morphing/stylegan/AN-LFAU10.mp4",
+    "name": "AN-LFAU10"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-LFAU12.mp4",
+    "name": "AN-LFAU12"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-LFAU12R.mp4",
+    "name": "AN-LFAU12R"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-LFAU14.mp4",
+    "name": "AN-LFAU14"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-LFAU15.mp4",
+    "name": "AN-LFAU15"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-LFAU24.mp4",
+    "name": "AN-LFAU24"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-LFAU25.mp4",
+    "name": "AN-LFAU25"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-LFAU34.mp4",
+    "name": "AN-LFAU34"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-NE.mp4",
+    "name": "AN-NE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-SA.mp4",
+    "name": "AN-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/AN-UFAU02.mp4",
+    "name": "AN-UFAU02"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-AN.mp4",
+    "name": "FE-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-LFAU10.mp4",
+    "name": "FE-LFAU10"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-LFAU12.mp4",
+    "name": "FE-LFAU12"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-LFAU12R.mp4",
+    "name": "FE-LFAU12R"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-LFAU14.mp4",
+    "name": "FE-LFAU14"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-LFAU15.mp4",
+    "name": "FE-LFAU15"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-LFAU24.mp4",
+    "name": "FE-LFAU24"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-LFAU25.mp4",
+    "name": "FE-LFAU25"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-LFAU34.mp4",
+    "name": "FE-LFAU34"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-NE.mp4",
+    "name": "FE-NE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-SA.mp4",
+    "name": "FE-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/FE-UFAU02.mp4",
+    "name": "FE-UFAU02"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU10-AN.mp4",
+    "name": "LFAU10-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU10-FE.mp4",
+    "name": "LFAU10-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU10-SA.mp4",
+    "name": "LFAU10-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU12-AN.mp4",
+    "name": "LFAU12-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU12-FE.mp4",
+    "name": "LFAU12-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU12-SA.mp4",
+    "name": "LFAU12-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU12R-AN.mp4",
+    "name": "LFAU12R-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU12R-FE.mp4",
+    "name": "LFAU12R-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU12R-SA.mp4",
+    "name": "LFAU12R-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU14-AN.mp4",
+    "name": "LFAU14-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU14-FE.mp4",
+    "name": "LFAU14-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU14-SA.mp4",
+    "name": "LFAU14-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU15-AN.mp4",
+    "name": "LFAU15-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU15-FE.mp4",
+    "name": "LFAU15-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU15-SA.mp4",
+    "name": "LFAU15-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU24-AN.mp4",
+    "name": "LFAU24-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU24-FE.mp4",
+    "name": "LFAU24-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU24-SA.mp4",
+    "name": "LFAU24-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU25-AN.mp4",
+    "name": "LFAU25-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU25-FE.mp4",
+    "name": "LFAU25-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU25-SA.mp4",
+    "name": "LFAU25-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU34-AN.mp4",
+    "name": "LFAU34-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU34-FE.mp4",
+    "name": "LFAU34-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/LFAU34-SA.mp4",
+    "name": "LFAU34-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/NE-AN.mp4",
+    "name": "NE-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/NE-FE.mp4",
+    "name": "NE-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/NE-SA.mp4",
+    "name": "NE-SA"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-AN.mp4",
+    "name": "SA-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-FE.mp4",
+    "name": "SA-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-LFAU10.mp4",
+    "name": "SA-LFAU10"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-LFAU12.mp4",
+    "name": "SA-LFAU12"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-LFAU12R.mp4",
+    "name": "SA-LFAU12R"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-LFAU14.mp4",
+    "name": "SA-LFAU14"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-LFAU15.mp4",
+    "name": "SA-LFAU15"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-LFAU24.mp4",
+    "name": "SA-LFAU24"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-LFAU25.mp4",
+    "name": "SA-LFAU25"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-LFAU34.mp4",
+    "name": "SA-LFAU34"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-NE.mp4",
+    "name": "SA-NE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/SA-UFAU02.mp4",
+    "name": "SA-UFAU02"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/UFAU02-AN.mp4",
+    "name": "UFAU02-AN"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/UFAU02-FE.mp4",
+    "name": "UFAU02-FE"
+  },
+  {
+    "type": "stylegan",
+    "path": "../../morphing/stylegan/UFAU02-SA.mp4",
+    "name": "UFAU02-SA"
   }
 ]

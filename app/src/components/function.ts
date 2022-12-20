@@ -1,7 +1,7 @@
 import { Result, Morphing } from "./interfaces";
 
 export const rest_num: number = 2; // 休憩総数
-export const rest_time: number = 0.1; // 休憩時間（分）
+export const rest_time: number = 5; // 休憩時間（分）
 
 export const sortFunc = (a: Result, b: Result) => {
   if (a.type > b.type) return 1;

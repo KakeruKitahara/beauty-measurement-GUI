@@ -93,8 +93,8 @@ export default () => {
   const idx = stepValue - 1 - restCnt;
 
   const handleClick = () => { // ボタンクリック操作
-    const sum_worksteps = Math.min(restCnt + 1, radix_and_plus_element[1]) + (restCnt + 1) * radix_and_plus_element[0];
 
+    const sum_worksteps = Math.min(restCnt + 1, radix_and_plus_element[1]) + (restCnt + 1) * radix_and_plus_element[0];
     if (!restFlag) {
       if (selValue === 0) {
         alertPopSet(
@@ -163,13 +163,12 @@ export default () => {
     if (idx >= 0) {// メモ化して不要な再レンダリングを禁止
       return (
         <div className={Styles.mp4}>
-          <video src={morphing[idx].path} muted autoPlay loop></video>
+          <video src={morphing[idx].path} muted autoPlay loop id="video"></video>
         </div>);
     }
   }, [stepValue]);
 
   return (
-
     <div className={Styles.wrap}>
       <div className={Styles.count}>
         {stepValue}/{rest_num + Json.length}
@@ -212,6 +211,5 @@ export default () => {
         </Button>
       </div>
     </div>
-
   );
 };
