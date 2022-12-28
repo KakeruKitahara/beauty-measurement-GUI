@@ -1,2 +1,5 @@
 /results/*
 !/results/.gitkeep
+
+/pdf/*
+!/pdf/.gitkeep
