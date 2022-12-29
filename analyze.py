@@ -168,7 +168,7 @@ def diffByAspect(data, types):  # semanticstyleganと他の実装の比較
                 f'        改善された表情数 : {cnt}/{len(diff)} {math.floor(cnt/len(diff) * 100)}%')
 
 
-def diffReverseAspect(data, types):
+def diffReverseAspect(data, types): # 逆モーフィングとの比較．
     expectation = totallng(data, types)
     expectation2 = {t: {f: [] for f in types['morphing']}
                     for t in types['technique']}
@@ -192,24 +192,25 @@ def diffReverseAspect(data, types):
             values_mean[kt][kf] = stcs.mean(vf)
             values_median[kt][kf] = stcs.median(vf)
 
-    for p in ['mean', 'median'] :
+    lst = [values_mean, values_median]
+    for ind, p in enumerate(['mean', 'median']) :
         values_pair = {t: [{f: 0 for f in types_st_morphing}, {
             f: 0 for f in types_st_morphing}] for t in types['technique']}
         for kt, vt in values_pair.items():
             for i, vi in enumerate(vt):
                 for kf in vi.keys():
                     if i == 0:
-                        values_pair[kt][i][kf] = values_mean[kt][kf]
+                        values_pair[kt][i][kf] = lst[ind][kt][kf]
                     else:
                         a, b = kf.split('-')
                         rkey = f'{b}-{a}'
-                        values_pair[kt][i][kf] = values_mean[kt][rkey]
+                        values_pair[kt][i][kf] = lst[ind][kt][rkey]
 
         totoal_width = 0.8
 
         for kt, vt in values_pair.items():
             morph_graph_style()
-            plt.title(f'reverse {kt} morphing (mean)', fontsize=20)
+            plt.title(f'reverse {kt} morphing ({p})', fontsize=20)
             for i, ex in enumerate(vt):
                 st = 'regular order' if i == 0 else 'reverse order'
                 pos = np.arange(len(ex)) - totoal_width * \
@@ -219,11 +220,11 @@ def diffReverseAspect(data, types):
             plt.legend()
             plt.xticks(np.arange(len(next(
                 iter(vt)).keys())), next(iter(vt)).keys())
-            plt.savefig(f'pdf/reverse-morphing_{kt}.pdf')
+            plt.savefig(f'pdf/{kt}-reverseMorphing_{p}.pdf')
             plt.clf()
 
 
-def tatisticalTest(data, types):
+def tatisticalTest(data, types): # 検定
     def p_show(p):
         if p < 0.05:
             print('     - significance level : モーフィング間は有意である．')
@@ -251,7 +252,7 @@ def tatisticalTest(data, types):
         p_show(result.pvalue)
 
 
-def commentPickup(data, types):
+def commentPickup(data, types): # コメント抽出．
     comments = {t: {f: [] for f in types['morphing']}
                 for t in types['technique']}
     for k, v in data.items():
@@ -290,4 +291,9 @@ for i, p in enumerate(paths):
             type_morphing.add(d['name'])
 types = {'sex': list(type_sex), 'technique': list(
     type_technique), 'morphing': list(type_morphing)}
+averageByType(data, types)
+averageByAspect(data, types)
+diffByAspect(data, types)
 diffReverseAspect(data, types)
+tatisticalTest(data, types)
+commentPickup(data, types)
